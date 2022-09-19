@@ -12,7 +12,8 @@ app.listen((process.env.PORT || 5000), async () => {
 
 app.get('/test', async (req, res) => {
     const browser = await puppeteer.launch({
-        // headless: false,
+        headless: true,
+        args: ['--no-sandbox']
     });
     page = await browser.newPage();
     await page.goto('https://rbixm.qualtrics.com/jfe/form/SV_9MHgHFvPm0OEHr0?CountryCode=FRA&Q_Language=FR&PT=1');
