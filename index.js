@@ -10,7 +10,7 @@ app.listen((process.env.PORT || 5000), async () => {
 })
 
 
-app.get('/', async (req, res) => {
+app.get('/test', async (req, res) => {
     const browser = await puppeteer.launch({
         headless: false,
     });
@@ -19,5 +19,11 @@ app.get('/', async (req, res) => {
     let htmlSoup = await page.$eval('.QuestionText', el => el.innerHTML)
 
     res.status(200).send(htmlSoup);
+
+});
+
+
+app.get('/', async (req, res) => {
+    res.status(200).send("coucou");
 
 });
